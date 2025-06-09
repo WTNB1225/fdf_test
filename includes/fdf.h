@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:25:36 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/09 22:58:21 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/09 23:42:17 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,21 @@ typedef struct s_map
 {
 	size_t	width;
 	size_t	height;
+	int		ox;
+	int		oy;
+	int		oz;
 	float	*x;
 	float	*y;
 	float	*z;
 }	t_map;
+
+typedef struct s_coords
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+}	t_coords;
 
 typedef struct s_data
 {
@@ -56,7 +67,6 @@ size_t	count_width(const char *line);
 void	read_file(const char *filename, t_map *map);
 
 void	init(t_vars *vars, t_data *data);
-t_data	*init_data(void);
 
 void	put_pixel(t_data *data, int x, int y, int color);
 

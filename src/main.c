@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:07:17 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/09 23:03:29 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/09 23:14:01 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,13 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		exit_error("Usage : ./fdf <filename>", false);
 	read_file(av[1], &map);
-	init(&vars, &data);	
-	for (size_t i = 0; i < 1000; i++)
-	{
-		for(size_t j = 0; j < 1000; j++)
-		{
-			put_pixel(&data, j, i, 0XFFFFFFFF);
-		}
-	}
+	init(&vars, &data);
+
 	mlx_put_image_to_window(vars.mlx, vars.win, data.img, 0, 0);
 	mlx_loop(vars.mlx);
 	mlx_destroy_image(vars.mlx, data.img);
 	mlx_destroy_window(vars.mlx, vars.win);
 	mlx_destroy_display(vars.mlx);
 	free(vars.mlx);
+	return (0);
 }
