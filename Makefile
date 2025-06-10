@@ -9,6 +9,7 @@ SRC_DIR = src/
 INCS = -I./includes/
 
 SRC = error.c \
+	  draw_utils.c \
 	  draw.c \
 	  free.c \
 	  parse_map.c \

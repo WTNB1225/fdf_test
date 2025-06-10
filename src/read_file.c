@@ -16,6 +16,7 @@ void	read_file(const char *filename, t_map *map)
 {
 	map->width = get_width(filename);
 	map->height = get_height(filename);
+	map->alt = get_alt(filename, map);
 	//map->alt = get_altitude(filename, map);
 	//map->color = get_color(filename, map);
 }

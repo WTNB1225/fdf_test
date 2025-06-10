@@ -16,7 +16,7 @@ size_t	count_width(const char *line)
 {
 	char	**split;
 	size_t	i;
-	
+
 	split = ft_split(line, ' ');
 	if (!split)
 		return (0);
@@ -25,4 +25,28 @@ size_t	count_width(const char *line)
 		i++;
 	free_double_ptr(split);
 	return (i);
+}
+
+int	*line_to_int(char *line)
+{
+	char	**split;
+	int		*array;
+	size_t	i;
+
+	split = ft_split(line, ' ');
+	if (!split)
+		return (NULL);
+	i = 0;
+	while (split[i])
+		i++;
+	array = (int *)malloc(sizeof(int) * i);
+	if (!array)
+		return (NULL);
+	i = 0;
+	while (split[i])
+	{
+		array[i] = ft_atoi(split[i]);
+		i++;
+	}
+	return (array);
 }
