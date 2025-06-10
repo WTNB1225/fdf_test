@@ -20,7 +20,31 @@ void	put_pixel(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-static void	draw(t_map *map, t_data *data)
+void	draw_line(t_coords *coords, t_data *data, int color)
+{
+	t_draw_params	params;
+
+	set_draw_params(&params, coords);
+	while (1)
+	{
+		put_pixel(data, coords->x0, coords->y0, color);
+		if (coords->x0 == coords->x1 && coords->y0 == coords->y1)
+			break ;
+		if (2 * params.err > -params.dy)
+		{
+			params.err -= params.dy;
+			coords->x0 += params.sx;
+		}
+		if (2 * params.err < params.dx)
+		{
+			params.err += params.dx;
+			coords->y0 += params.sy;
+		}
+	}
+}
+
+
+void	draw(t_map *map, t_data *data)
 {
 	size_t		x;
 	size_t		y;
@@ -45,28 +69,5 @@ static void	draw(t_map *map, t_data *data)
 			x++;
 		}
 		y++;
-	}
-}
-
-void	draw_line(t_coords *coords, t_data *data, int color)
-{
-	t_draw_params	params;
-
-	set_draw_params(&params, coords);
-	while (1)
-	{
-		put_pixel(data, coords->x0, coords->y0, color);
-		if (coords->x0 == coords->x1 && coords->y0 == coords->y1)
-			break ;
-		if (2 * params.err > -params.dy)
-		{
-			params.err -= params.dy;
-			coords->x0 += params.sx;
-		}
-		if (2 * params.err < params.dx)
-		{
-			params.err += params.dx;
-			coords->y0 += params.sy;
-		}
 	}
 }

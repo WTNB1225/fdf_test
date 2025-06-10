@@ -83,9 +83,11 @@ int	*get_alt(const char *filename, t_map *map)
 	{
 		int_array = line_to_int(line);
 		if (!int_array)
-			(free(alt), exit_with_fd("Failed to allocate memory", false, fd));
-		ft_memcpy(line + (map->width * i), int_array, map->width);
+			(free(alt), free(line), exit_with_fd("Failed to allocate memory", false, fd));
+		ft_memcpy((alt + (map->width * i)), int_array, map->width * sizeof(int));
+		free(line);
 		free(int_array);
+		line = get_next_line(fd);
 	}
 	if (close(fd) == -1)
 		exit_error("Failed to close the file", true);

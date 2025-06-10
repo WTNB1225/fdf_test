@@ -70,8 +70,10 @@ void	exit_with_fd(char *message, bool is_syscall, int fd);
 
 size_t	get_height(const char *filename);
 size_t	get_width(const char *filename);
+int		*get_alt(const char *filename, t_map *map);
 
 size_t	count_width(const char *line);
+int		*line_to_int(char *line);
 void	read_file(const char *filename, t_map *map);
 
 void	init(t_vars *vars, t_data *data);

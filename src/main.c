@@ -28,6 +28,7 @@ int	main(int ac, char **av)
 	mlx_destroy_image(vars.mlx, data.img);
 	mlx_destroy_window(vars.mlx, vars.win);
 	mlx_destroy_display(vars.mlx);
+	free(map.alt);
 	free(vars.mlx);
 	return (0);
 }

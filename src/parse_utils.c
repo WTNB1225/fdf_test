@@ -48,5 +48,6 @@ int	*line_to_int(char *line)
 		array[i] = ft_atoi(split[i]);
 		i++;
 	}
+	free_double_ptr(split);
 	return (array);
 }
