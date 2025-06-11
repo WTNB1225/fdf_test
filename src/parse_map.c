@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:14:27 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/09 20:36:52 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 21:23:29 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ size_t	get_width(const char *filename)
 	}
 	if (close(fd) == -1)
 		exit_error("Failed to close the file", true);
-
 	return (width);
 }
 
@@ -67,7 +66,7 @@ int	*get_alt(const char *filename, t_map *map)
 {
 	int		fd;
 	char	*line;
-	int		*int_array;
+	int		*array;
 	int		*alt;
 	size_t	i;
 
@@ -81,13 +80,11 @@ int	*get_alt(const char *filename, t_map *map)
 	i = 0;
 	while (line)
 	{
-		int_array = line_to_int(line);
-		if (!int_array)
-			(free(alt), free(line), exit_with_fd("Failed to allocate memory", false, fd));
-		ft_memcpy((alt + (map->width * i)), int_array, map->width * sizeof(int));
-		free(line);
-		free(int_array);
-		line = get_next_line(fd);
+		array = line_to_int(line);
+		if (!array)
+			(free(alt), free(line), exit_with_fd("Alloc error", false, fd));
+		ft_memcpy((alt + (map->width * i)), array, map->width * sizeof(int));
+		line = (free(line), free(array), get_next_line(fd));
 	}
 	if (close(fd) == -1)
 		exit_error("Failed to close the file", true);

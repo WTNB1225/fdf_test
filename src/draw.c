@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:53:12 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/09 23:47:13 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 14:36:04 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	draw_line(t_coords *coords, t_data *data, int color)
 		}
 	}
 }
-
 
 void	draw(t_map *map, t_data *data)
 {

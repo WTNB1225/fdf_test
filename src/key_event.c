@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   key_event.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 20:39:47 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 21:24:30 by wyuki            ###   ########.fr       */
+/*   Created: 2025/06/11 21:11:19 by wyuki             #+#    #+#             */
+/*   Updated: 2025/06/11 21:14:00 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	init(t_data *data)
+int	on_key_down(int keycode, t_data *data)
 {
-	data->mlx = mlx_init();
-	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "fdf");
-	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-	data->addr = mlx_get_data_addr(data->img, &data->bps,
-			&data->line_width, &data->endian);
+	if (keycode == ESC_KEY)
+		close_window(data);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:25:36 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/09 23:42:17 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 21:13:06 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
+# define ESC_KEY 65307
 
 typedef struct s_map
 {
@@ -51,19 +52,15 @@ typedef struct s_draw_params
 
 typedef struct s_data
 {
+	void	*mlx;
+	void	*win;
 	void	*img;
+	t_map	*map;
 	char	*addr;
 	int		bps;
 	int		line_width;
 	int		endian;
 }	t_data;
-
-typedef struct s_vars
-{
-	void	*mlx;
-	void	*win;
-}	t_vars;
-
 
 void	exit_error(char *message, bool is_syscall);
 void	exit_with_fd(char *message, bool is_syscall, int fd);
@@ -76,7 +73,7 @@ size_t	count_width(const char *line);
 int		*line_to_int(char *line);
 void	read_file(const char *filename, t_map *map);
 
-void	init(t_vars *vars, t_data *data);
+void	init(t_data *data);
 
 void	set_coords_row(size_t idx, t_map *map, t_coords *coords);
 void	set_coords_col(size_t idx, size_t down, t_map *map, t_coords *coords);
@@ -84,6 +81,9 @@ void	set_draw_params(t_draw_params *params, t_coords *coords);
 
 void	put_pixel(t_data *data, int x, int y, int color);
 void	draw_line(t_coords *coords, t_data *data, int color);
+
+int		close_window(t_data *data);
+int		on_key_down(int keycode, t_data *data);
 
 void	free_double_ptr(char **ptr);
 #endif

@@ -15,6 +15,9 @@ SRC = error.c \
 	  parse_map.c \
 	  parse_utils.c \
 	  read_file.c \
+	  key_event.c \
+	  mouse_event.c \
+	  event.c \
 	  main.c \
 	  init.c \
 
