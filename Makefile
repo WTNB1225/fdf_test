@@ -19,7 +19,9 @@ SRC = error.c \
 	  mouse_event.c \
 	  event.c \
 	  main.c \
+	  calc_rotate.c \
 	  init.c \
+	  isometric.c \
 
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:25:36 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 21:13:06 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 22:46:04 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,15 @@ void	set_draw_params(t_draw_params *params, t_coords *coords);
 
 void	put_pixel(t_data *data, int x, int y, int color);
 void	draw_line(t_coords *coords, t_data *data, int color);
+void	draw(t_map *map, t_data *data);
 
 int		close_window(t_data *data);
 int		on_key_down(int keycode, t_data *data);
+
+void	rotate_x(t_map *map, double angle);
+void	rotate_y(t_map *map, double angle);
+void	rotate_z(t_map *map, double angle);
+void	isometric(t_map *map, t_data *data);
 
 void	free_double_ptr(char **ptr);
 #endif

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:53:12 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 14:36:04 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 22:49:49 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,16 @@ void	draw(t_map *map, t_data *data)
 		{
 			idx = y * map->width + x;
 			down = (y + 1) * map->width + x;
-			set_coords_row(idx, map, &coords);
 			if (x < map->width - 1)
+			{
+				set_coords_row(idx, map, &coords);
 				draw_line(&coords, data, 0xFFFFFFFF);
-			set_coords_col(idx, down, map, &coords);
+			}
 			if (y < map->height - 1)
+			{
+				set_coords_col(idx, down, map, &coords);
 				draw_line(&coords, data, 0xFFFFFFFF);
+			}
 			x++;
 		}
 		y++;
