@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:07:17 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 22:47:16 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 23:06:40 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	main(int ac, char **av)
 	if (ac != 2)
 		exit_error("Usage : ./fdf <filename>", false);
 	read_file(av[1], &map);
-	init(&data);
-	map.x = (float *)malloc(sizeof(float) * map.width * map.height);
-	map.y = (float *)malloc(sizeof(float) * map.width * map.height);
-	map.z = (float *)malloc(sizeof(float) * map.width * map.height);
+	init(&data, &map);
 	data.map = &map;
 	isometric(&map, &data);
 	mlx_hook(data.win, 2, 0, on_key_down, &data);

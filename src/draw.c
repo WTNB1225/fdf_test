@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:53:12 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 22:49:49 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 23:46:21 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	put_pixel(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
+	if (x < 0 || y < 0 || x >= WIDTH || y >= HEIGHT)
+		return ;
 	dst = data->addr + (data->line_width * y) + (data->bps / 8) * x;
 	*(unsigned int *)dst = color;
 }

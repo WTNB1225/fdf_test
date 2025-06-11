@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 21:27:45 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 22:45:48 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 23:38:57 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 void	rotate_x(t_map *map, double angle)
 {
-	size_t	x;
-	size_t	y;
+	int		x;
+	int		y;
 	size_t	idx;
 
 	y = 0;
-	while (y < map->height)
+	idx = 0;
+	while ((size_t)y < map->height)
 	{
 		x = 0;
-		while (x < map->width)
+		while ((size_t)x < map->width)
 		{
 			idx = y * map->width + x;
 			map->y[idx] = y * cos(angle) - map->alt[idx] * sin(angle);
@@ -35,15 +36,16 @@ void	rotate_x(t_map *map, double angle)
 
 void	rotate_y(t_map *map, double angle)
 {
-	size_t	x;
-	size_t	y;
+	int		x;
+	int		y;
 	size_t	idx;
 
 	y = 0;
-	while (y < map->height)
+	idx = 0;
+	while ((size_t)y < map->height)
 	{
 		x = 0;
-		while (x < map->width)
+		while ((size_t)x < map->width)
 		{
 			idx = y * map->width + x;
 			map->x[idx] = x * cos(angle) + map->alt[idx] * sin(angle);
@@ -56,15 +58,16 @@ void	rotate_y(t_map *map, double angle)
 
 void	rotate_z(t_map *map, double angle)
 {
-	size_t	x;
-	size_t	y;
+	int		x;
+	int		y;
 	size_t	idx;
 
 	y = 0;
-	while (y < map->height)
+	idx = 0;
+	while ((size_t)y < map->height)
 	{
 		x = 0;
-		while (x < map->width)
+		while ((size_t)x < map->width)
 		{
 			idx = y * map->width + x;
 			map->x[idx] = x * cos(angle) - y * sin(angle);

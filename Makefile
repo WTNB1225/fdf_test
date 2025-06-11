@@ -1,6 +1,6 @@
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=undefined
+CFLAGS = -Wall -Werror -Wextra -fsanitize=undefined -g 
 
 NAME = fdf
 
