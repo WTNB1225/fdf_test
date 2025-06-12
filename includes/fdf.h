@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:25:36 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 23:09:22 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/12 00:17:05 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ size_t	get_width(const char *filename);
 int		*get_alt(const char *filename, t_map *map);
 
 size_t	count_width(const char *line);
-int		*line_to_int(char *line);
+int		*line_to_int(char *line, size_t width);
 void	read_file(const char *filename, t_map *map);
 
 void	init(t_data *data, t_map *map);

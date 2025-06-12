@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:14:27 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 21:23:29 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/12 00:21:01 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,11 @@ int	*get_alt(const char *filename, t_map *map)
 	i = 0;
 	while (line)
 	{
-		array = line_to_int(line);
+		array = line_to_int(line, map->width);
 		if (!array)
 			(free(alt), free(line), exit_with_fd("Alloc error", false, fd));
-		ft_memcpy((alt + (map->width * i)), array, map->width * sizeof(int));
+		ft_memcpy(&alt[i], array, sizeof(int) * map->width);
+		i += map->width;
 		line = (free(line), free(array), get_next_line(fd));
 	}
 	if (close(fd) == -1)

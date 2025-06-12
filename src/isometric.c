@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 22:40:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 23:34:37 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/11 23:52:41 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	isometric(t_map *map, t_data *data)
 {
-	rotate_z(map, 45 * M_PI / 180);
-	rotate_x(map, 30 * M_PI / 180);
+	rotate_z(map, 45 * M_PI / 180.0);
+	rotate_x(map, 30 * M_PI / 180.0);
 	draw(map, data);
 }

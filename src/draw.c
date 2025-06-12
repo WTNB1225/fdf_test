@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:53:12 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 23:46:21 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/12 00:08:25 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	put_pixel(t_data *data, int x, int y, int color)
 void	draw_line(t_coords *coords, t_data *data, int color)
 {
 	t_draw_params	params;
-
+	
+	ft_bzero(&params, sizeof(t_draw_params));
 	set_draw_params(&params, coords);
 	while (1)
 	{
@@ -53,6 +54,7 @@ void	draw(t_map *map, t_data *data)
 	size_t		down;
 	t_coords	coords;
 
+	ft_bzero(&coords, sizeof(t_coords));
 	y = 0;
 	while (y < map->height)
 	{

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:48:43 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 21:17:10 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/12 00:16:28 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	count_width(const char *line)
 	return (i);
 }
 
-int	*line_to_int(char *line)
+int	*line_to_int(char *line, size_t width)
 {
 	char	**split;
 	int		*array;
@@ -37,9 +37,7 @@ int	*line_to_int(char *line)
 	if (!split)
 		return (NULL);
 	i = 0;
-	while (split[i])
-		i++;
-	array = (int *)malloc(sizeof(int) * i);
+	array = (int *)malloc(sizeof(int) * width);
 	if (!array)
 		return (NULL);
 	i = 0;
