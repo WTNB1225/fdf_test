@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 22:40:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/13 02:13:28 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 14:46:24 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ void	add_offset(t_map *map)
 
 	set_max_and_min(map);
 	tile_size = get_tile_size(map);
-	offset_x = (WIDTH / 2) - (map->max_x - map->min_x) * tile_size / 2;
-	offset_y = (HEIGHT / 2) - (map->max_x - map->min_x) * tile_size / 2;
+	offset_x = (WIDTH / 2) - (map->max_x + map->min_x) * tile_size / 2;
+	offset_y = (HEIGHT / 2) - (map->max_y + map->min_y) * tile_size / 2;
 	i = 0;
 	while (i < map->width * map->height)
 	{
-		map->x[i] = map->x[i] + offset_x;
-		map->y[i] = map->y[i] + offset_y;
+		map->x[i] = map->x[i] * tile_size + offset_x;
+		map->y[i] = map->y[i] * tile_size + offset_y;
 		i++;
 	}
 }
@@ -71,12 +71,14 @@ void	isometric(t_map *map, t_data *data)
 {
 	size_t	i;
 	rotate_z(map, 45 * M_PI / 180.0);
-	rotate_x(map, 30 * M_PI / 180.0);
+	//rotate_(map, 45 * M_PI / 180.0);
+	//rotate_z(map, 45 * M_PI / 180.0);
+	//rotate_x(map, 35 * M_PI / 180.0);
 	add_offset(map);
 	i = 0;
 	while (i < map->width * map->height)
 	{
-		printf("%d ", map->x[i]);
+		printf("%f ", map->x[i]);
 		if (i % (map->width - 1) == 0)
 			printf("\n");
 		i++;

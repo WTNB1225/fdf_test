@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:25:36 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/13 01:41:29 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 02:35:05 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ typedef struct s_map
 	size_t	width;
 	size_t	height;
 	int		*alt;
-	int		*x;
-	int		*y;
-	int		*z;
-	int		max_x;
-	int		min_x;
-	int		max_y;
-	int		min_y;
+	float	*x;
+	float	*y;
+	float	*z;
+	float	max_x;
+	float	min_x;
+	float	max_y;
+	float	min_y;
 }	t_map;
 
 typedef struct s_coords

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 21:27:45 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 23:38:57 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 14:45:02 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	rotate_x(t_map *map, double angle)
 		while ((size_t)x < map->width)
 		{
 			idx = y * map->width + x;
-			map->y[idx] = y * cos(angle) - map->alt[idx] * sin(angle);
-			map->z[idx] = y * sin(angle) + map->alt[idx] * cos(angle);
+			map->y[idx] = y * cos(angle) - map->z[idx] * sin(angle);
+			map->z[idx] = y * sin(angle) + map->z[idx] * cos(angle);
 			x++;
 		}
 		y++;
@@ -48,8 +48,8 @@ void	rotate_y(t_map *map, double angle)
 		while ((size_t)x < map->width)
 		{
 			idx = y * map->width + x;
-			map->x[idx] = x * cos(angle) + map->alt[idx] * sin(angle);
-			map->z[idx] = -x * sin(angle) + map->alt[idx] * cos(angle);
+			map->x[idx] = x * cos(angle) + map->z[idx] * sin(angle);
+			map->z[idx] = -x * sin(angle) + map->z[idx] * cos(angle);
 			x++;
 		}
 		y++;

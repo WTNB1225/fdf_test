@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 22:53:12 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/13 02:10:45 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 02:36:10 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,21 @@ void	put_pixel(t_data *data, int x, int y, int color)
 void	draw_line(t_coords *coords, t_data *data, int color)
 {
 	t_draw_params	params;
-	
+	long long int	err2;
+
 	set_draw_params(&params, coords);
 	while (1)
 	{
 		put_pixel(data, coords->x0, coords->y0, color);
 		if (coords->x0 == coords->x1 && coords->y0 == coords->y1)
 			break ;
-		if (2 * params.err > -params.dy)
+		err2 = 2 * params.err;
+		if (err2 > -params.dy)
 		{
 			params.err -= params.dy;
 			coords->x0 += params.sx;
 		}
-		if (2 * params.err < params.dx)
+		if (err2 < params.dx)
 		{
 			params.err += params.dx;
 			coords->y0 += params.sy;
