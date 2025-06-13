@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 23:54:20 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/28 23:35:54 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 23:08:23 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,6 @@ size_t	ft_strlen(const char *s)
 	while (s != NULL && s[i])
 		i++;
 	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	if (s == NULL)
-		return (NULL);
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (*s == (char)c)
-		return ((char *)s);
-	return (NULL);
 }
 
 char	*ft_strjoin(char *s1, char const *s2)

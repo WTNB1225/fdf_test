@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 01:01:49 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/09 20:27:20 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 22:12:46 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,4 +17,5 @@ void	read_file(const char *filename, t_map *map)
 	map->width = get_width(filename);
 	map->height = get_height(filename);
 	map->alt = get_alt(filename, map);
+	map->color = get_color(filename, map);
 }

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:39:47 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/13 02:22:11 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/13 15:57:07 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	init(t_data *data, t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			map->x[y * map->width + x] = x; 
-			map->y[y * map->width + x] = y; 
-			map->z[y * map->width + x] = map->alt[y * map->width + x]; 
+			map->x[y * map->width + x] = x;
+			map->y[y * map->width + x] = y;
+			map->z[y * map->width + x] = map->alt[y * map->width + x];
 			x++;
 		}
 		y++;
