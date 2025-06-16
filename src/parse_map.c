@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:14:27 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/13 23:06:10 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/15 01:00:42 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,34 +91,30 @@ int	*get_alt(const char *filename, t_map *map)
 	return (alt);
 }
 
-unsigned int	*get_color(const char *filename, t_map *map)
+unsigned int	*get_color(const char *filename, t_map *map, size_t width)
 {
 	char			*line;
 	int				fd;
 	unsigned int	*color;
-	unsigned int	*color_line;
-	size_t			i;
+	unsigned int	*array;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		(free(map->alt), exit_error("Failed to open the file", true));
-	color = (unsigned int *)malloc(sizeof(unsigned int) * map->width * map->height);
+	color = (unsigned int *)malloc(sizeof(int) * map->width * map->height);
 	if (!color)
 		(free(map->alt), exit_error("Failed to allocate memory", false));
 	line = get_next_line(fd);
-	i = 0;
 	while (line)
 	{
-		color_line = get_line_color(line, map->width);
-		if (!color_line)
+		array = get_line_color(line, map->width);
+		if (!array)
 		{
 			(free(line), free(map->alt), free(color));
 			exit_with_fd("Failed to allocate memory", false, fd);
 		}
-		ft_memcpy(&color[i], color_line, sizeof(unsigned int) * map->width);
-		i += map->width;
-		free(line);
-		line = get_next_line(fd);
+		(ft_memcpy(color, array, sizeof(int) * map->width), color += width);
+		line = (free(line), free(array), get_next_line(fd));
 	}
-	return (color);
+	return (color - (map->width * map->height));
 }

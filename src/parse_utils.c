@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:48:43 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/13 23:06:21 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/14 16:26:35 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ unsigned int	hex_to_uint(char *str)
 	size_t			i;
 	const char		*hex_table = "0123456789ABCDEF";
 
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
 	sum = 0;
 	str += 2;
 	while (*str)
@@ -89,11 +91,14 @@ unsigned int	*get_line_color(char *line, size_t width)
 	i = 0;
 	while (split[i])
 	{
-		ptr = ft_strchr(line, ',');
+		ptr = ft_strchr(split[i], ',');
 		if (!ptr)
 			line_color[i++] = 0xFFFFFFFF;
 		else
-			line_color[i++] = hex_to_uint(ptr++);
+		{
+			ptr++;
+			line_color[i++] = hex_to_uint(ptr);
+		}
 	}
 	free_double_ptr(split);
 	return (line_color);

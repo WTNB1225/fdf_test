@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 14:45:06 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/11 23:49:52 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/15 00:57:47 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	close_window(t_data *data)
 	free(data->map->x);
 	free(data->map->y);
 	free(data->map->z);
+	free(data->map->color);
 	exit(0);
 	return (0);
 }
