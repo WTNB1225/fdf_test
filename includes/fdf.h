@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 19:25:36 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/16 16:37:07 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/16 19:24:17 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void			move_right(t_data *data);
 void			zoom_in(t_data *data);
 void			zoom_out(t_data *data);
 void			isometric(t_map *map, t_data *data);
+void			orthograpic(t_map *map, t_data *data);
 
 void			free_double_ptr(char **ptr);
 #endif

@@ -19,6 +19,7 @@ SRC = error.c \
 	  mouse_event.c \
 	  event.c \
 	  main.c \
+	  orthograpic.c \
 	  rotate.c \
 	  translate.c \
 	  zoom.c \

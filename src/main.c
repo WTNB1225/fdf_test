@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:07:17 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/14 16:24:53 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/16 19:23:55 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(int ac, char **av)
 	data.map = &map;
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_hook(data.win, 2, 1 << 0, on_key_down, &data);
-	isometric(&map, &data);
+	//isometric(&map, &data);
+	orthograpic(&map, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
